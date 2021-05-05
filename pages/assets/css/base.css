@@ -123,6 +123,24 @@ cite,
 em {
     font-style: italic;
 }
+/*
+  ========================================
+  Main
+  ========================================
+*/
+.aside{
+	width: 20%;
+	float:left;
+	display: inline-block;
+}
+.container{
+	background: #fff;
+	width: 80%;
+	float: left;
+	display: inline-block;
+	padding: 10px;
+}
+
 
 /*
   ========================================
@@ -135,4 +153,7 @@ em {
 
 .login-form{
 	padding-bottom: 20px;
+}
+.warn{
+	color: red;
 }
