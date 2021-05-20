@@ -1,7 +1,7 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>人员信息管理系统</title>
+		<title>人员信息管理</title>
 		<script type="text/javascript">
 			
 			var index = 1;
