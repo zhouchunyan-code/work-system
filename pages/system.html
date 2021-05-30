@@ -16,68 +16,37 @@
 	 			<nav>
 	 				<ul>
 	 					<li>薪资管理</li>
-					</div>  
-					<div data-options="region:'south',split:false" style="height:50px;"></div>  
-					<!--  <div data-options="region:'east',iconCls:'icon-reload',title:'工具',split:true" style="width:100px;"></div> --> 
-			  
-			 <!-- ********************菜单********************************8 -->  
-					<div data-options="region:'west',title:'菜单',split:false" style="width:200px;">
-						 
-						<div id="ac" class="easyui-accordion" data-options="fit:true">
-						 
 							<div title="查询工资"data-options="selected:false">
 								<a id="" href="#" class="easyui-linkbutton" title="SelectPay.html"
 								style="width:100%"data-options="iconCls:'icon-search'">查询工资</a>
-								 
 								<a id="dd" href="#" class="easyui-linkbutton" title=""
 								style="width:100%"data-options="iconCls:'icon-search'">设置工资</a>
-							</div>
-							 
+							</div>	 
 							<div  title="税率标准" >
 								<a id="" href="#" class="easyui-linkbutton"  title="SelectRate.html"
-								style="width:100%"data-options="iconCls:'icon-search'">查询税率</a>
-								 
+								style="width:100%"data-options="iconCls:'icon-search'">查询税率</a> 
 								<a id="" href="#"class="easyui-linkbutton" title="ShezhiRate.html"style="width:100%"
-								data-options="iconCls:'icon-shezhi'">设置税率</a>
-									 
-								 
-									 
+								data-options="iconCls:'icon-shezhi'">设置税率</a>		 
 							</div>
-						 
 							<div title="奖惩标准">
-								<a href="#" title="ShezhiDeal.html"class="easyui-linkbutton"style="width:100%"
-								data-options="iconCls:'icon-shezhi'" >奖惩设置</a> 
 								<a href="#" title="SelectDeal.html"class="easyui-linkbutton"style="width:100%"
-								data-options="iconCls:'icon-search'" >奖惩查询</a> 
+								data-options="iconCls:'icon-search'" >查询奖惩</a> 
+								<a href="#" title="ShezhiDeal.html"class="easyui-linkbutton"style="width:100%"
+								data-options="iconCls:'icon-shezhi'" >设置奖惩</a>
 							</div>
-							 
 							<div title="工资标准">
-							<a href="#" title="ShezhiRank.html"class="easyui-linkbutton"style="width:100%"
-							data-options="iconCls:'icon-shezhi'" >工资标准设置</a> 
-							<a href="#" title="SelectRank.html"class="easyui-linkbutton"style="width:100%"
+								<a href="#" title="SelectRank.html"class="easyui-linkbutton"style="width:100%"
 							data-options="iconCls:'icon-search'">查询工资标准</a> 
-							</div>
-							 
-						</div>
-					 
-					</div> 
-				  
-				  
-					<div data-options="region:'center',title:'主窗口'" style="padding:5px;background:#eee;">
-					<div id="img" class="easyui-panel"><img alt="" src="images/2.jpg" width="100%" heigth="440px"></div>
-						<div id="tt" class="easyui-tabs" data-options="fit:true,justified:false"></div>
-					</div> 
-			 
-					 
-				</div> 
-						
+							<a href="#" title="ShezhiRank.html"class="easyui-linkbutton"style="width:100%"
+							data-options="iconCls:'icon-shezhi'" >设置工资标准</a> 
+							</div> 
+				</div>	
 	 					<li>职位</li>
 						 <li>人员管理</li>
 						</head>
 						<body>
 							<button type="button" onclick="showPerson()">显示人员信息</button>
 							<button type="button" onclick="showAddPerson()">新增人员信息</button>
-							<hr >
 							<!-- 表格信息 -->
 							<div id="div1">
 								<table border="1" style="display: none;" id="table1"cellspacing="2" cellpadding="2">
@@ -118,18 +87,51 @@
 									籍贯：<input type="text" name="area" id="uarea" /><br>
 									<button type="button" onclick="updatePerson()">确定</button>
 									<button type="button" onclick="cancel()">取消</button>
-								</fieldset>
 							</div>
 						</body>
-					</html>
 	 					<li>部门</li>
 	 					<li>个人中心</li>
-	 				</ul>
-	 			</nav>
-	 			<p></p>
-	 		</div>
-	 	</div>
-	 </aside>
-	 <section class="container"></section>
-</body>
-</html>
+							  <div class="update-info" v-show="!isshow">
+								 <div class="information">
+									<a id="" href="#" class="easyui-linkbutton"  title="SelectRate.html"
+									style="width:100%"data-options="iconCls:'icon-search'">基本资料</a> 
+								 
+								   <div class="info-head clearfix">
+									 <div class="info-avatar">
+									   <img :src="'api/' + infoForm.headpic" />
+									   <a id="" href="#" class="easyui-linkbutton"  title="SelectRate.html"
+									style="width:100%"data-options="iconCls:'icon-search'">编辑头像</a> 
+									   
+							</span></span>
+									   </div>
+									 </div>
+								   </div>
+								   <el-form :model="infoForm" :rules="rules" ref="infoForm" label-width="100px">
+									 <el-form-item class="info-item" label="昵称:" prop="nickname">
+									   <el-input type="text" v-model="infoForm.nickname" ref="inputname"></el-input>
+									 </el-form-item>
+									 <el-form-item class="info-item" label="移动电话:" prop="tel">
+									   <el-input type="num" v-model="infoForm.tel" ref="inputtel"></el-input>
+									 </el-form-item>
+									 <el-form-item class="info-item" label="邮箱:" prop="email">
+									   <el-input disabled v-model="infoForm.email"></el-input>
+									 </el-form-item>
+								   </el-form>
+								 <div style="padding-left:20%;">
+								<button type="button" onclick="showPerson()">重置</button>
+							    <button type="button" onclick="showAddPerson()">保存</button>
+								   
+								 </div>
+								 </div>
+							   </div>
+							   
+									
+								  
+									
+
+							 
+						  				
+        
+  
+
+          
